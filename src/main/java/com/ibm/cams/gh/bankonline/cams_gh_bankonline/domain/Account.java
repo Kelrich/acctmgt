@@ -8,13 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-
 @Table(name = "account")
-
 public class Account implements Serializable {
 
 	private static final long serialVersionUID = -2343243243242432341L;
-
 	@Id
 	@Column(name = "id", unique=true, columnDefinition="VARCHAR(10)", nullable = false)
 	private String id;
@@ -24,6 +21,19 @@ public class Account implements Serializable {
 
 	@Column(name = "lastname")
 	private String lastname;
+	
+	public Account() {
+	}
+	
+	public Account(String id, String firstname, String lastname) {
+		this.id = id;
+		this.firstname = firstname;
+		this.lastname = lastname;
+	}
+	
+	public String toString() {
+		return String.format("Account[id='%s', firstname='%s', lastname='%s']", id, firstname, lastname);
+	}
 	
 //	@Column(name = "address")
 //	private String address;
